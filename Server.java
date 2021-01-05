@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 public class Server {
 
     public static void main(String[] args) throws Exception {
-        try (ServerSocket listener = new ServerSocket(59898)) {
+        try (ServerSocket listener = new ServerSocket(59898, 512, InetAddress.getByName("192.168.50.133"))) {
             System.out.println("The remote procedure call server is running...");
             ExecutorService pool = Executors.newFixedThreadPool(20);
             while (true) {
