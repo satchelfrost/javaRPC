@@ -32,10 +32,9 @@ public class Server {
                 Scanner in = new Scanner(socket.getInputStream());
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 while (in.hasNextLine()) {
-		            /* Call the procedure and return the result */
-		            String procedureResult = callProcedure(in.nextLine());
-
-		            /* Send the result to the socket */
+                    /* Call the procedure and return the result */
+                    String procedureResult = callProcedure(in.nextLine());
+                    /* Send the result to the socket */
                     out.println(procedureResult);
                 }
             } catch (Exception e) {
